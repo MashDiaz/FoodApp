@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <inset
+            android:drawable="@drawable/search__2_"
+            android:insetLeft="0.0000004dp"
+            android:insetRight="0.00000004dp"
+            android:insetTop="0.000000004dp"
+            android:insetBottom="0.000000004dp" />
+    </item>
+</layer-list>
