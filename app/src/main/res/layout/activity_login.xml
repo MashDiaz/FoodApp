@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:visibility="visible">
+    android:visibility="visible"
+    tools:context=".Login">
 
     <ImageView
         android:id="@+id/imageView"
@@ -18,19 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:srcCompat="@drawable/untitled_design__1_"
         tools:ignore="MissingConstraints" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="25dp"
-        android:layout_marginTop="20dp"
-        android:text="Hi,\nPlease Login"
-        android:textColor="#ffffff"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -202,40 +190,43 @@
         style="@android:style/Widget.Button"
         android:layout_width="247dp"
         android:layout_height="49dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="723dp"
         android:background="@drawable/button_background"
         android:text="Sign Up"
         android:textColor="#ffffff"
         android:textSize="25sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="724dp" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
 
     <Button
         android:id="@+id/button3"
         style="@android:style/Widget.Button"
         android:layout_width="247dp"
         android:layout_height="49dp"
+        android:layout_marginStart="204dp"
+        android:layout_marginTop="667dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/button_background"
         android:text="Login"
         android:textColor="#ffffff"
         android:textSize="25sp"
         android:textStyle="bold"
-        tools:ignore="MissingConstraints"
-        tools:layout_editor_absoluteX="82dp"
-        tools:layout_editor_absoluteY="667dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.536"
+        tools:ignore="MissingConstraints" />
 
     <ImageView
         android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="524dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
         app:srcCompat="@drawable/untitled_design__1_2"
-        tools:ignore="MissingConstraints" />
+        tools:ignore="MissingConstraints"
+        tools:layout_editor_absoluteY="232dp" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

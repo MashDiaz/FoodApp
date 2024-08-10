@@ -1,6 +1,9 @@
 package com.example.foodapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,5 +23,14 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button getStartBtn = findViewById(R.id.GetStartBtn);
+        getStartBtn.setOnClickListener(v -> onStarted(v));
     }
+
+    public void onStarted(View view) {
+        Intent startIntent = new Intent(this , Login.class);
+        startActivity(startIntent);
+    }
+
+
 }
