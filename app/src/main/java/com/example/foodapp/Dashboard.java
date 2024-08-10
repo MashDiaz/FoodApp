@@ -34,13 +34,13 @@ public class Dashboard extends AppCompatActivity {
         beverages=findViewById(R.id.beverages);
         cart=findViewById(R.id.cart);
 
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                openDrawer(drawerLayout);
-            }
-        });
+//        menu.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view)
+//            {
+//                openDrawer(drawerLayout);
+//            }
+//        });
 
         dashboard.setOnClickListener(new View.OnClickListener() {
             @Override

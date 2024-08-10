@@ -36,7 +36,7 @@ public class DBHelper extends SQLiteOpenHelper {
         contentValues.put("username",username);
         contentValues.put("email",email);
         contentValues.put("password",password);
-        long result =db.insert("user",null,contentValues);
+        long result =db.insert("users",null,contentValues);
         if(result== -1)
             return false;
         else
@@ -50,5 +50,13 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         else
             return false;
+    }
+    public boolean checkUsernamePassword(String email, String password) {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM users WHERE email = ? AND password = ?", new String[]{email, password});
+        if (cursor.getCount() > 0) {
+            return true;
+        }
+        return false;
     }
 }

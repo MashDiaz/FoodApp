@@ -37,6 +37,11 @@ public class SignUp extends AppCompatActivity {
                 pwd = password.getText().toString();
                 rePwd = repassword.getText().toString();
 
+                System.out.println(user);
+                System.out.println(email1);
+                System.out.println(pwd);
+                System.out.println(rePwd);
+
                 if(user.equals("") || pwd.equals("") || rePwd.equals("")){
                     Toast.makeText(SignUp.this,"Please fill all fields",Toast.LENGTH_LONG).show();
 
