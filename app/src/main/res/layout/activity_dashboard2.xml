@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawerlayout"
+    android:id="@+id/dashboard2"
     tools:context=".Dashboard">
 
     <LinearLayout
@@ -142,8 +142,8 @@
                         android:layout_marginTop="24dp"
                         android:text="Up to 40% off"
                         android:textColor="@color/yellow"
-                        android:textStyle="bold"
                         android:textSize="20dp"
+                        android:textStyle="bold"
                         app:layout_constraintBaseline_toTopOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
@@ -160,8 +160,8 @@
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/button2"
                         style="@style/ThemeOverlay.Material3.Button"
-                        android:layout_width="134dp"
-                        android:layout_height="28dp"
+                        android:layout_width="159dp"
+                        android:layout_height="49dp"
                         android:layout_marginTop="16dp"
                         android:layout_marginBottom="24dp"
                         android:background="@drawable/button_background"
@@ -169,7 +169,8 @@
                         android:textColor="@color/white"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@+id/textView12"
-                        app:layout_constraintTop_toBottomOf="@+id/textView12" />
+                        app:layout_constraintTop_toBottomOf="@+id/textView12"
+                        app:layout_constraintVertical_bias="0.619" />
 
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -224,6 +225,10 @@
                     android:clipToPadding="false"
                     android:paddingStart="12dp"
                     android:paddingEnd="12dp"/>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
             </LinearLayout>
         </ScrollView>
 
@@ -261,9 +266,5 @@
             layout="@layout/navbar"/>
 
     </RelativeLayout>
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </androidx.drawerlayout.widget.DrawerLayout>

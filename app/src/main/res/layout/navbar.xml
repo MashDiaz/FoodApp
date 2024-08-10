@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:background="@drawable/drawer_border"
-    android:id="@+id/drawerlayout"
+    android:id="@+id/drawerlayout1"
     android:layout_height="match_parent">
 
     <LinearLayout
