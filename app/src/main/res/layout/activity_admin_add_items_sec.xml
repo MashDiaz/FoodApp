@@ -74,4 +74,15 @@
         android:text="Add "
         tools:layout_editor_absoluteX="274dp"
         tools:layout_editor_absoluteY="613dp" />
+
+    <EditText
+        android:id="@+id/txtAIProCat"
+        android:layout_width="174dp"
+        android:layout_height="37dp"
+        android:ems="10"
+        android:hint="Category"
+        android:inputType="text"
+        tools:layout_editor_absoluteX="211dp"
+        tools:layout_editor_absoluteY="203dp" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
