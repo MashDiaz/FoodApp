@@ -5,7 +5,7 @@
     android:id="@+id/passAdminLoginpass"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AdminLogin">
+    tools:context=".AdminLogin">
 
     <EditText
         android:id="@+id/editTextTextPassword"
