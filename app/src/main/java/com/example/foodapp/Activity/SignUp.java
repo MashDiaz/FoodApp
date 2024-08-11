@@ -1,15 +1,14 @@
-package com.example.foodapp;
-import android.content.Intent;
+package com.example.foodapp.Activity;
 import android.os.Bundle;
 import android.view.View;
-import android.view.accessibility.AccessibilityManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import com.google.android.material.button.MaterialButton;
+
+import com.example.foodapp.R;
 
 
 public class SignUp extends AppCompatActivity {

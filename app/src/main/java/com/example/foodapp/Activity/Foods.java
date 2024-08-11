@@ -1,4 +1,4 @@
-package com.example.foodapp;
+package com.example.foodapp.Activity;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -8,15 +8,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
 import androidx.core.view.GravityCompat;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
-public class Drinks extends AppCompatActivity {
+import com.example.foodapp.R;
+
+public class Foods extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ImageView menu;
@@ -46,7 +44,7 @@ public class Drinks extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                redirectActivity(Drinks.this, Dashboard.class);
+                redirectActivity(Foods.this, Dashboard.class);
 
             }
         });
@@ -55,7 +53,7 @@ public class Drinks extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                redirectActivity(Drinks.this, Foods.class);
+                recreate();
             }
         });
 
@@ -63,7 +61,7 @@ public class Drinks extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                recreate();
+                redirectActivity(Foods.this, Drinks.class);
             }
         });
 
@@ -71,7 +69,7 @@ public class Drinks extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                redirectActivity(Drinks.this, Beverages.class);
+                redirectActivity(Foods.this, Beverages.class);
             }
         });
 
@@ -79,14 +77,14 @@ public class Drinks extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                redirectActivity(Drinks.this, Cart.class);
+                redirectActivity(Foods.this, Cart.class);
             }
         });
         beverages.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view)
             {
-                Toast.makeText(Drinks.this, "Logout", Toast.LENGTH_SHORT).show();
+                Toast.makeText(Foods.this, "Logout", Toast.LENGTH_SHORT).show();
             }
         });
 
