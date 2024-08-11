@@ -5,7 +5,7 @@
     android:id="@+id/passAdminLoginpass"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#272525"
+    android:background="#FFFFFF"
     tools:context=".AdminDashboard">
 
     <Button
@@ -13,9 +13,9 @@
         android:layout_width="156dp"
         android:layout_height="62dp"
         android:layout_marginStart="229dp"
-        android:layout_marginTop="243dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="428dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="409dp"
         android:drawableLeft="@drawable/baseline_add_alert_24"
         android:text="Discounts"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -27,10 +27,10 @@
         android:id="@+id/btnadminAddItems"
         android:layout_width="156dp"
         android:layout_height="62dp"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="243dp"
-        android:layout_marginEnd="227dp"
-        android:layout_marginBottom="426dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="239dp"
+        android:layout_marginBottom="407dp"
         android:drawableLeft="@android:drawable/ic_menu_add"
         android:text="Add Items"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -39,11 +39,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:strokeColor="#000000" />
 
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="93dp"
-        tools:layout_editor_absoluteY="290dp"></com.google.android.material.chip.ChipGroup>
+    <Button
+        android:id="@+id/btnAddLocation"
+        android:layout_width="156dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="328dp"
+        android:text="Add Location"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/linearLayout2"
@@ -52,13 +60,11 @@
         android:layout_marginStart="2dp"
         android:layout_marginTop="88dp"
         android:layout_marginBottom="495dp"
-        android:background="#FF9800"
+        android:background="#FFEB3B"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:layout_width="81dp"
@@ -165,49 +171,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <!-- MapView for location picking -->
-
-    <com.google.android.gms.maps.MapView
-        android:id="@+id/mapView"
-        android:layout_width="179dp"
-        android:layout_height="246dp"
-        android:layout_marginStart="19dp"
-        android:layout_marginTop="341dp"
-        android:layout_marginEnd="195dp"
-        android:layout_marginBottom="144dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
-        android:id="@+id/btnConfirmLocation"
+        android:id="@+id/btnMngUsers"
         android:layout_width="156dp"
         android:layout_height="62dp"
-        android:layout_marginStart="229dp"
-        android:layout_marginTop="333dp"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="343dp"
-        android:drawableLeft="@android:drawable/ic_menu_mylocation"
-        android:text="Confirm Location"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:text="Manage Users"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView38"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="314dp"
-        android:layout_marginEnd="319dp"
-        android:layout_marginBottom="398dp"
-        android:text="Add outlet"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteY="348dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
