@@ -10,34 +10,33 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
+import com.bumptech.glide.Glide;
 
 import com.example.foodapp.Domain.CategoryDomain;
 import com.example.foodapp.R;
 
-import java.time.Instant;
 import java.util.ArrayList;
 
-public class CatrgoryAdapter extends RecyclerView.Adapter<CatrgoryAdapter.viewholder> {
+public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.viewholder> {
 
     ArrayList<CategoryDomain> items;
     Context context;
 
 
-    public CatrgoryAdapter(ArrayList<CategoryDomain> items) {
+    public CategoryAdapter(ArrayList<CategoryDomain> items) {
         this.items = items;
     }
 
     @NonNull
     @Override
-    public CatrgoryAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public CategoryAdapter.viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         context=parent.getContext();
         View inflate= LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_cayegory,parent,false);
         return new viewholder(inflate);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull CatrgoryAdapter.viewholder holder, int position) {
+    public void onBindViewHolder(@NonNull CategoryAdapter.viewholder holder, int position) {
 
         holder.titleTxt.setText(items.get(position).getTitle());
         @SuppressLint("DiscouragedApi") int drawableResourceId=holder.itemView.getResources()
