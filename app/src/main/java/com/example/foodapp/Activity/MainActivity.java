@@ -3,9 +3,7 @@ package com.example.foodapp.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.Spinner;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,7 +34,6 @@ public class MainActivity extends AppCompatActivity {
         });
         Button getStartBtn = findViewById(R.id.GetStartBtn);
         getStartBtn.setOnClickListener(v -> onStarted(v));
-
     }
 
     public void onStarted(View view) {
