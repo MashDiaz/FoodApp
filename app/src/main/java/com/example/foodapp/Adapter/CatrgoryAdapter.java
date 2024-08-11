@@ -1,25 +1,28 @@
 package com.example.foodapp.Adapter;
 
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.example.foodapp.Domain.CategoryDomain;
 import com.example.foodapp.R;
 
+import java.time.Instant;
 import java.util.ArrayList;
 
 public class CatrgoryAdapter extends RecyclerView.Adapter<CatrgoryAdapter.viewholder> {
 
     ArrayList<CategoryDomain> items;
     Context context;
+
 
     public CatrgoryAdapter(ArrayList<CategoryDomain> items) {
         this.items = items;
@@ -37,7 +40,7 @@ public class CatrgoryAdapter extends RecyclerView.Adapter<CatrgoryAdapter.viewho
     public void onBindViewHolder(@NonNull CatrgoryAdapter.viewholder holder, int position) {
 
         holder.titleTxt.setText(items.get(position).getTitle());
-        int drawableResourceId=holder.itemView.getResources()
+        @SuppressLint("DiscouragedApi") int drawableResourceId=holder.itemView.getResources()
                 .getIdentifier(items.get(position).getImgPath(), "drawable",holder.itemView.getContext().getPackageName());
 
     Glide.with(context)
