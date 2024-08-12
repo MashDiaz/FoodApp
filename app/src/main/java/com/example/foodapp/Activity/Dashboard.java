@@ -1,38 +1,66 @@
 package com.example.foodapp.Activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.Adapter.CategoryAdapter;
+import com.example.foodapp.Domain.CategoryDomain;
 import com.example.foodapp.R;
+
+import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout dashboard, foods, drinks, beverages, cart;
+    TextView category;
+    ImageView dashboard, foods, drinks, account, cart;
+
+    private RecyclerView.Adapter catAdapter, bestDealsAdapter;
+    private RecyclerView recyclerViewCat, recyclerViewBestDeal;
+
+    private void initRecyclerviewCat() {
+        ArrayList<CategoryDomain> items = new ArrayList<>();
+        items.add(new CategoryDomain("cat1", "Vegetable"));
+        items.add(new CategoryDomain("cat2", "Fruits"));
+        items.add(new CategoryDomain("cat3", "Dairy"));
+        items.add(new CategoryDomain("cat4", "Drinks"));
+        items.add(new CategoryDomain("cat5", "Grain"));
+
+        recyclerViewCat = findViewById(R.id.catView);
+        recyclerViewCat.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false));
+
+        catAdapter = new CategoryAdapter(items);
+        recyclerViewCat.setAdapter(catAdapter);
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard2);
 
-        drawerLayout = findViewById(R.id.drawerlayout);
-        menu = findViewById(R.id.imageView8); // Ensure this ID is correctly set
-        dashboard = findViewById(R.id.dashboard);
-        foods = findViewById(R.id.Food);
-        drinks = findViewById(R.id.drinks);
-        beverages = findViewById(R.id.beverages);
-        cart = findViewById(R.id.cart);
-
-        menu.setOnClickListener(new View.OnClickListener() {
+        drawerLayout = findViewById(R.id.db);
+        category = findViewById(R.id.textView13); // Ensure this ID is correctly set
+        dashboard = findViewById(R.id.imageView6);
+        foods = findViewById(R.id.imageView19);
+        drinks = findViewById(R.id.imageView20);
+        account = findViewById(R.id.imageView22);
+        cart = findViewById(R.id.imageView23);
+        initRecyclerviewCat();
+        category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDrawer(drawerLayout);
@@ -60,7 +88,7 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        beverages.setOnClickListener(new View.OnClickListener() {
+        account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 redirectActivity(Dashboard.this, Beverages.class);
@@ -73,6 +101,17 @@ public class Dashboard extends AppCompatActivity {
                 redirectActivity(Dashboard.this, Cart.class);
             }
         });
+        initLocation();
+    }
+    private void initLocation() {
+        String[] items=new String[]{"LosAngles, USA", "NewYork, USA"};
+
+        final Spinner locationSpin= findViewById(R.id.spinner);
+
+        ArrayAdapter<String> adapter=new ArrayAdapter<>(this,android.R.layout.simple_spinner_item,items);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpin.setAdapter(adapter);
+
     }
 
     public static void openDrawer(DrawerLayout drawerLayout) {
