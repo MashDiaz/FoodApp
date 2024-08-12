@@ -21,21 +21,21 @@
 
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.513"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39">
+            app:layout_constraintVertical_bias="0.38">
 
             <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="412dp"
-                android:layout_height="109dp"
+                android:id="@+id/constraintLayout4"
+                android:layout_width="392dp"
+                android:layout_height="132dp"
                 android:background="@drawable/yellow_background3"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.516"
+                app:layout_constraintHorizontal_bias="0.487"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.916">
+                app:layout_constraintVertical_bias="0.816">
 
                 <TextView
                     android:id="@+id/textView10"
@@ -43,14 +43,14 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:text="Total"
-                    android:textSize="30dp"
+                    android:textSize="22dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.046"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.492" />
+                    app:layout_constraintVertical_bias="0.231" />
 
                 <TextView
                     android:id="@+id/textView11"
@@ -59,16 +59,83 @@
                     android:gravity="center"
                     android:text="Rs.Price"
                     android:textColor="@color/black"
-                    android:textSize="30dp"
+                    android:textSize="22dp"
                     android:textStyle="bold"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.946"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.492" />
+                    app:layout_constraintVertical_bias="0.231" />
+
+                <Button
+                    android:id="@+id/button6"
+                    android:layout_width="366dp"
+                    android:layout_height="47dp"
+                    android:text="PAY NOW"
+                    android:textSize="20dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.615"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.811" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="392dp"
+                android:layout_height="102dp"
+                android:background="@drawable/yellow_background3"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.491"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.658">
+
+                <TextView
+                    android:id="@+id/promo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="ADD PROMO CODE"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.076"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.222" />
+
+                <EditText
+                    android:id="@+id/textView29"
+                    android:layout_width="188dp"
+                    android:layout_height="30dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@color/white"
+                    android:gravity="center"
+                    android:hint="Type Promo Code"
+                    android:textSize="18sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="@+id/promo"
+                    app:layout_constraintStart_toStartOf="@+id/promo"
+                    app:layout_constraintTop_toBottomOf="@+id/promo"
+                    app:layout_constraintVertical_bias="1.0" />
+
+                <Button
+                    android:id="@+id/button7"
+                    android:layout_width="141dp"
+                    android:layout_height="64dp"
+                    android:text="Check Availability"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.936"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.578" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
