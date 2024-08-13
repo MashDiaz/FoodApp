@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.foodapp.R;
 import com.google.android.gms.maps.model.LatLng;
 
-public class AdminDashboard extends AppCompatActivity {
+public class AdminLogin extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +30,14 @@ public class AdminDashboard extends AppCompatActivity {
         // Handle adding items
         Button btnadminAddItems = findViewById(R.id.btnadminAddItems);
         btnadminAddItems.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminDashboard.this, AdminAddItemsSec.class);
+            Intent intent = new Intent(AdminLogin.this, AdminAddItemsSec.class);
             startActivity(intent);
         });
 
         // Handle adding location
         Button btnAddLocation = findViewById(R.id.btnAddLocation);
         btnAddLocation.setOnClickListener(v -> {
-            Intent intent = new Intent(AdminDashboard.this, MapActivity.class);  // Assuming you have a MapActivity for location picking
+            Intent intent = new Intent(AdminLogin.this, MapActivity.class);  // Assuming you have a MapActivity for location picking
             startActivityForResult(intent, 200);  // Using a request code of 200
         });
 
@@ -46,7 +46,7 @@ public class AdminDashboard extends AppCompatActivity {
         btnMngUsers.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(AdminDashboard.this, ManageUsersActivity.class);
+                Intent intent = new Intent(AdminLogin.this, ManageUsersActivity.class);
                 startActivity(intent);
             }
         });

@@ -31,7 +31,7 @@
             android:name=".Activity.AdminAddItemsSec"
             android:exported="false" />
         <activity
-            android:name=".Activity.AdminDashboard"
+            android:name=".Activity.AdminLogin"
             android:exported="false" />
 
         <activity
