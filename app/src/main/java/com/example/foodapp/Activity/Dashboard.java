@@ -1,5 +1,6 @@
 package com.example.foodapp.Activity;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -24,8 +26,9 @@ import java.util.ArrayList;
 public class Dashboard extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout dashboard, foods, drinks, beverages, cart;
+    TextView category;
+    ImageView dashboard, foods, drinks, account, cart;
+
     private RecyclerView.Adapter catAdapter, bestDealsAdapter;
     private RecyclerView recyclerViewCat, recyclerViewBestDeal;
 
@@ -43,20 +46,21 @@ public class Dashboard extends AppCompatActivity {
         catAdapter = new CategoryAdapter(items);
         recyclerViewCat.setAdapter(catAdapter);
     }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard2);
 
-        drawerLayout = findViewById(R.id.drawerlayout);
-        menu = findViewById(R.id.imageView8); // Ensure this ID is correctly set
-        dashboard = findViewById(R.id.dashboard);
-        foods = findViewById(R.id.Food);
-        drinks = findViewById(R.id.drinks);
-        beverages = findViewById(R.id.beverages);
-        cart = findViewById(R.id.cart);
+        drawerLayout = findViewById(R.id.db);
+        category = findViewById(R.id.textView13); // Ensure this ID is correctly set
+        dashboard = findViewById(R.id.imageView6);
+        foods = findViewById(R.id.imageView19);
+        drinks = findViewById(R.id.imageView20);
+        account = findViewById(R.id.imageView22);
+        cart = findViewById(R.id.imageView23);
         initRecyclerviewCat();
-        menu.setOnClickListener(new View.OnClickListener() {
+        category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 openDrawer(drawerLayout);
@@ -84,10 +88,10 @@ public class Dashboard extends AppCompatActivity {
             }
         });
 
-        beverages.setOnClickListener(new View.OnClickListener() {
+        account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirectActivity(Dashboard.this, Beverages.class);
+                redirectActivity(Dashboard.this, UserAccount.class);
             }
         });
 

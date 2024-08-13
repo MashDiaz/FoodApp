@@ -69,7 +69,7 @@ public class Foods extends AppCompatActivity {
             @Override
             public void onClick(View view)
             {
-                redirectActivity(Foods.this, Beverages.class);
+                redirectActivity(Foods.this, UserAccount.class);
             }
         });
 

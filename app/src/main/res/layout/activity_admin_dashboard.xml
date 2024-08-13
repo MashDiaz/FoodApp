@@ -5,24 +5,32 @@
     android:id="@+id/passAdminLoginpass"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Activity.AdminDashboard">
+    android:background="#FFFFFF"
+    tools:context=".AdminDashboard">
 
-    <com.google.android.material.chip.ChipGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:layout_editor_absoluteX="85dp"
-        tools:layout_editor_absoluteY="73dp">
-
-    </com.google.android.material.chip.ChipGroup>
+    <Button
+        android:id="@+id/btnDiscountConfig"
+        android:layout_width="156dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="409dp"
+        android:drawableLeft="@drawable/baseline_add_alert_24"
+        android:text="Discounts"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnadminAddItems"
         android:layout_width="156dp"
         android:layout_height="62dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="211dp"
-        android:layout_marginBottom="519dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="262dp"
+        android:layout_marginEnd="239dp"
+        android:layout_marginBottom="407dp"
         android:drawableLeft="@android:drawable/ic_menu_add"
         android:text="Add Items"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -32,18 +40,144 @@
         app:strokeColor="#000000" />
 
     <Button
-        android:id="@+id/btnDiscountConfig"
-        android:layout_width="166dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="208dp"
-        android:layout_marginTop="150dp"
-        android:layout_marginEnd="37dp"
-        android:layout_marginBottom="521dp"
-        android:drawableLeft="@drawable/baseline_add_alert_24"
-        android:text="Discounts"
+        android:id="@+id/btnAddLocation"
+        android:layout_width="156dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="229dp"
+        android:layout_marginTop="353dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="328dp"
+        android:text="Add Location"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/linearLayout2"
+        android:layout_width="409dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="88dp"
+        android:layout_marginBottom="495dp"
+        android:background="#FFEB3B"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:layout_width="81dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="312dp"
+            android:layout_marginBottom="106dp"
+            android:baselineAligned="false"
+            android:fontFamily="sans-serif-black"
+            android:text="Total Orders"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtTotalOrderCount"
+            android:layout_width="79dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="43dp"
+            android:layout_marginEnd="314dp"
+            android:layout_marginBottom="82dp"
+            android:text="1000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="87dp"
+            android:layout_height="22dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="206dp"
+            android:layout_marginBottom="110dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Revenue "
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtRevGenTotal"
+            android:layout_width="87dp"
+            android:layout_height="23dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="37dp"
+            android:layout_marginEnd="206dp"
+            android:layout_marginBottom="82dp"
+            android:text="$100,000"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="77dp"
+            android:layout_marginEnd="309dp"
+            android:layout_marginBottom="55dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="Pending Orders"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtPendingOrders"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="93dp"
+            android:layout_marginEnd="369dp"
+            android:layout_marginBottom="36dp"
+            android:text="100"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/textView36"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="48dp"
+        android:layout_marginEnd="285dp"
+        android:layout_marginBottom="664dp"
+        android:text="Stats and Configs"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnMngUsers"
+        android:layout_width="156dp"
+        android:layout_height="62dp"
+        android:layout_marginStart="16dp"
+        android:text="Manage Users"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteY="348dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
