@@ -16,9 +16,7 @@ import com.example.foodapp.R;
 
 public class Drinks extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout dashboard, foods, drinks, beverages, cart;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
