@@ -59,4 +59,18 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return false;
     }
+    public Cursor getUserDetails() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM users WHERE id = 1";
+        return db.rawQuery(query, null);
+    }
+
+    public boolean updateUserDetails(ContentValues contentValues) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        int result = db.update("users", contentValues, "id = ?", new String[]{"1"});
+        return result > 0; // Returns true if the update was successful
+    }
+
+
+
 }
