@@ -1,27 +1,33 @@
 package com.example.foodapp.Activity;
 
-import android.app.Activity;
-import android.content.Intent;
+
 import android.os.Bundle;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.Adapter.ItemAdapter;
 import com.example.foodapp.R;
 
-public class Foods extends AppCompatActivity {
+import java.util.List;
 
+public class Foods extends AppCompatActivity {
+    private RecyclerView recyclerView;
+    private ItemAdapter itemAdapter;
+    private List<Item> itemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foods);
 
-    }
+        recyclerView = findViewById(R.id.recyclerView);
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        DBHelper dbHelper = new DBHelper(this);
+        itemList = dbHelper.getAllItems();
+
+        itemAdapter = new ItemAdapter(itemList);
+        recyclerView.setAdapter(itemAdapter);
+    }
 }

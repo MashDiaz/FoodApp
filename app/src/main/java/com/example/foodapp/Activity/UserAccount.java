@@ -1,5 +1,4 @@
 package com.example.foodapp.Activity;
-
 import android.content.ContentValues;
 import android.content.Intent;
 import android.database.Cursor;
@@ -16,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.foodapp.Activity.DBHelper;
 import com.example.foodapp.R;
 
 public class UserAccount extends AppCompatActivity {
@@ -31,6 +31,9 @@ public class UserAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer);
+        }
+    }
+/**
 
         dbHelper = new DBHelper(this);
 
@@ -110,3 +113,4 @@ public class UserAccount extends AppCompatActivity {
         // fav tika hadanna
     }
 }
+**/

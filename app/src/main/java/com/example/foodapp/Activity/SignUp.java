@@ -1,4 +1,4 @@
-package com.example.foodapp;
+package com.example.foodapp.Activity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,6 +9,7 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.Activity.DBHelper;
+import com.example.foodapp.R;
 
 
 public class SignUp extends AppCompatActivity {
