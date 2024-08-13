@@ -1,5 +1,6 @@
 package com.example.foodapp.Adapter;
 
+import android.annotation.SuppressLint;
 import android.content.ClipData;
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,16 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.foodapp.Domain.ItemDomain;
 import com.example.foodapp.R;
 
 import java.util.ArrayList;
 
-public class BestDealsAdpter extends RecyclerView.Adapter<BestDealsAdpter.viewholder> {
-    ArrayList<ItemDomain> item;
+public class BestDealsAdpter extends AppCompatActivity {
+ /**   ArrayList<ItemDomain> item;
     Context context;
 
     public BestDealsAdpter(ArrayList<ItemDomain> item) {
@@ -39,7 +42,7 @@ public class BestDealsAdpter extends RecyclerView.Adapter<BestDealsAdpter.viewho
         holder.titleTxt.setText(items.get(position).getTitle());
         holder.priceTxt.setText(items.get(position).getPrice());
 
-        int drawableResourceId=holder.itemView.getResources()
+        @SuppressLint("DiscouragedApi") int drawableResourceId=holder.itemView.getResources()
                 .getIdentifier(items.get(position).getImgPath(),"drawable",holder.itemView.getContext().getPackageName());
 
         Glide.with(context)
@@ -70,5 +73,5 @@ public class BestDealsAdpter extends RecyclerView.Adapter<BestDealsAdpter.viewho
             priceTxt= ItemView.findViewById(R.id.priceTxt);
             pic=itemView.findViewById(R.id.img);
         }
-    }
+    }**/
 }
