@@ -22,8 +22,6 @@ public class Login extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
-        EditText username = findViewById(R.id.emailText);
-        EditText password = findViewById(R.id.passwordText);
     }
 
     public void goSignUp(View view) {
@@ -49,7 +47,7 @@ public class Login extends AppCompatActivity {
             if (isValid) {
                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
                 // Proceed to the next activity after successful login
-                Intent intent = new Intent(this, Dashboard.class);
+                Intent intent = new Intent(this, AdminAddItemsSec.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(Login.this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
