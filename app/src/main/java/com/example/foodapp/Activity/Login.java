@@ -47,7 +47,7 @@ public class Login extends AppCompatActivity {
             if (isValid) {
                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
                 // Proceed to the next activity after successful login
-                Intent intent = new Intent(this, AdminAddItemsSec.class);
+                Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(Login.this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
