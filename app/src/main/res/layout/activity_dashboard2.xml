@@ -72,20 +72,12 @@
                     android:layout_marginEnd="24dp"
                     android:orientation="horizontal">
 
-                    <EditText
-                        android:id="@+id/editTextText4"
-                        android:layout_width="0dp"
-                        android:layout_height="50dp"
-                        android:layout_weight="1"
-                        android:background="@drawable/edit_text_background"
-                        android:drawableStart="@drawable/baseline_youtube_searched_for_24"
-                        android:ems="10"
-                        android:hint="Search Food, Drinks, Beverages,...."
-                        android:inputType="text"
-                        android:padding="8dp"
-                        android:textColor="@color/grey"
-                        android:textColorHint="@color/grey"
-                        android:textSize="16sp" />
+                    <AutoCompleteTextView
+                        android:id="@+id/search_bar"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Search Here">
+                    </AutoCompleteTextView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="50dp"

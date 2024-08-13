@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
@@ -51,6 +52,12 @@ public class Dashboard extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard2);
+
+        String[] foodslist = getResources().getStringArray(R.array.search_items);
+        AutoCompleteTextView autoCompleteTextView = findViewById(R.id.search_bar);
+        ArrayAdapter<String> adapter =
+                new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodslist);
+        autoCompleteTextView.setAdapter(adapter);
 
         drawerLayout = findViewById(R.id.db);
         category = findViewById(R.id.textView13); // Ensure this ID is correctly set
