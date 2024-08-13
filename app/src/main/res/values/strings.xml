@@ -1,3 +1,12 @@
 <resources>
     <string name="app_name">food app</string>
+    <string-array name="search_items">
+        <item>Bread </item>
+        <item>Fruit Juice </item>
+        <item>Meat  </item>
+        <item>Rice  </item>
+        <item>Milk Coffee </item>
+        <item>Tea  </item>
+        <item>Burger </item>
+    </string-array>
 </resources>

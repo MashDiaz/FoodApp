@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.R;
+import com.example.foodapp.SignUp;
 
 public class Login extends AppCompatActivity {
 
@@ -36,7 +37,11 @@ public class Login extends AppCompatActivity {
 
         String user = username.getText().toString();
         String pwd = password.getText().toString();
-
+        if(user.equals("admin")&&pwd.equals("admin")){
+            Toast.makeText(Login.this, "Admin Login Successful", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, AdminDashboard.class);
+            startActivity(intent);
+        }
         if (user.equals("") || pwd.equals("")) {
             Toast.makeText(Login.this, "Please fill all fields", Toast.LENGTH_LONG).show();
         } else {
