@@ -5,8 +5,8 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#2C2828"
-    tools:context=".AdminAddItemsSec">
+    android:background="#FFFFFF"
+    tools:context=".Activity.AdminAddItemsSec">
 
     <!-- Title TextView -->
 
@@ -72,8 +72,10 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="131dp"
         android:layout_marginEnd="21dp"
+        android:layout_marginBottom="548dp"
         android:hint="Category"
         android:inputType="text"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_chainStyle="spread_inside"
         app:layout_constraintStart_toStartOf="parent"
