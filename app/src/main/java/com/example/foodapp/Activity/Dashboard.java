@@ -57,9 +57,7 @@ public class Dashboard extends AppCompatActivity {
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.search_bar);
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodslist);
-        //set the adapter to the autocompleteTextview
         autoCompleteTextView.setAdapter(adapter);
-        //done
 
         drawerLayout = findViewById(R.id.db);
         category = findViewById(R.id.textView13); // Ensure this ID is correctly set
