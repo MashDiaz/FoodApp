@@ -26,12 +26,9 @@ import java.util.ArrayList;
 
 public class Dashboard extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    TextView category;
-    ImageView dashboard, foods, drinks, account, cart;
 
-    private RecyclerView.Adapter catAdapter, bestDealsAdapter;
-    private RecyclerView recyclerViewCat, recyclerViewBestDeal;
+    private RecyclerView.Adapter catAdapter;
+    private RecyclerView recyclerViewCat;
 
     private void initRecyclerviewCat() {
         ArrayList<CategoryDomain> items = new ArrayList<>();
@@ -59,55 +56,10 @@ public class Dashboard extends AppCompatActivity {
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodslist);
         autoCompleteTextView.setAdapter(adapter);
 
-        drawerLayout = findViewById(R.id.db);
-        category = findViewById(R.id.textView13); // Ensure this ID is correctly set
-        dashboard = findViewById(R.id.imageView6);
-        foods = findViewById(R.id.imageView19);
-        drinks = findViewById(R.id.imageView20);
-        account = findViewById(R.id.imageView22);
-        cart = findViewById(R.id.imageView23);
+
         initRecyclerviewCat();
-        category.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                openDrawer(drawerLayout);
-            }
-        });
 
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                recreate();
-            }
-        });
 
-        foods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirectActivity(Dashboard.this, Foods.class);
-            }
-        });
-
-        drinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirectActivity(Dashboard.this, Drinks.class);
-            }
-        });
-
-        account.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirectActivity(Dashboard.this, UserAccount.class);
-            }
-        });
-
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                redirectActivity(Dashboard.this, Cart.class);
-            }
-        });
         initLocation();
     }
     private void initLocation() {
@@ -137,4 +89,31 @@ public class Dashboard extends AppCompatActivity {
         activity.startActivity(intent);
         activity.finish();
     }
+    public void displayFood(View view)
+    {
+        Intent startIntent = new Intent(this , Foods.class);
+        startActivity(startIntent);
+    }
+    public void displayDrinks(View view)
+    {
+        Intent startIntent = new Intent(this , Drinks.class);
+        startActivity(startIntent);
+    }
+    public void displayAccount(View view)
+    {
+        Intent startIntent = new Intent(this , UserAccount.class);
+        startActivity(startIntent);
+    }
+    public void displayHome(View view)
+    {
+        Intent startIntent = new Intent(this , Dashboard.class);
+        startActivity(startIntent);
+    }
+
+    public void displayCart(View view)
+    {
+        Intent startIntent = new Intent(this , Cart.class);
+        startActivity(startIntent);
+    }
+
 }

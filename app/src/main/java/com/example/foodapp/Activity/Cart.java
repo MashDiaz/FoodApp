@@ -16,77 +16,12 @@ import com.example.foodapp.R;
 
 public class Cart extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout dashboard, foods, drinks, beverages, cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard2);
+        setContentView(R.layout.activity_cart);
 
-        drawerLayout =findViewById(R.id.drawerlayout);
-        dashboard=findViewById(R.id.dashboard);
-        foods=findViewById(R.id.Food);
-        drinks=findViewById(R.id.drinks);
-        beverages=findViewById(R.id.beverages);
-        cart=findViewById(R.id.cart);
-
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                openDrawer(drawerLayout);
-            }
-        });
-
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Cart.this, Dashboard.class);
-
-            }
-        });
-
-        foods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Cart.this, Foods.class);
-            }
-        });
-
-        drinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Cart.this, Drinks.class);
-            }
-        });
-
-        beverages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Cart.this, UserAccount.class);
-            }
-        });
-
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                recreate();
-            }
-        });
-        beverages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(Cart.this, "Logout", Toast.LENGTH_SHORT).show();
-            }
-        });
 
     }
 

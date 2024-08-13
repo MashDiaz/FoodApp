@@ -16,99 +16,12 @@ import com.example.foodapp.R;
 
 public class Foods extends AppCompatActivity {
 
-    DrawerLayout drawerLayout;
-    ImageView menu;
-    LinearLayout dashboard, foods, drinks, beverages, cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_dashboard2);
-
-        drawerLayout =findViewById(R.id.drawerlayout);
-        dashboard=findViewById(R.id.dashboard);
-        foods=findViewById(R.id.Food);
-        drinks=findViewById(R.id.drinks);
-        beverages=findViewById(R.id.beverages);
-        cart=findViewById(R.id.cart);
-
-        menu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                openDrawer(drawerLayout);
-            }
-        });
-
-        dashboard.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Foods.this, Dashboard.class);
-
-            }
-        });
-
-        foods.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                recreate();
-            }
-        });
-
-        drinks.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Foods.this, Drinks.class);
-            }
-        });
-
-        beverages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Foods.this, UserAccount.class);
-            }
-        });
-
-        cart.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                redirectActivity(Foods.this, Cart.class);
-            }
-        });
-        beverages.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view)
-            {
-                Toast.makeText(Foods.this, "Logout", Toast.LENGTH_SHORT).show();
-            }
-        });
+        setContentView(R.layout.activity_foods);
 
     }
-
-    public static void openDrawer(DrawerLayout drawerLayout)
-    {
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-    public static void closeDrawer(DrawerLayout drawerLayout)
-    {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START))
-        {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
-
-    public static void redirectActivity(Activity activity, Class secondActivty)
-    {
-        Intent intent=new Intent(activity,secondActivty);
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        activity.startActivity(intent);
-        activity.finish();
-    }
-
 
 }
