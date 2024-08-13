@@ -91,7 +91,7 @@ public class Dashboard extends AppCompatActivity {
         account.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                redirectActivity(Dashboard.this, Beverages.class);
+                redirectActivity(Dashboard.this, UserAccount.class);
             }
         });
 

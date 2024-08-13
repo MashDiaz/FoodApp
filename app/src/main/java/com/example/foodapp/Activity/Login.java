@@ -9,6 +9,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.foodapp.R;
+import com.example.foodapp.SignUp;
 
 public class Login extends AppCompatActivity {
 

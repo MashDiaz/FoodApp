@@ -1,4 +1,4 @@
-package com.example.foodapp;
+package com.example.foodapp.Activity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import com.example.foodapp.Activity.AdminAddItemsSec;
+import com.example.foodapp.Activity.ManageUsersActivity;
+import com.example.foodapp.Activity.MapActivity;
+import com.example.foodapp.R;
 import com.google.android.gms.maps.model.LatLng;
 
 public class AdminDashboard extends AppCompatActivity {

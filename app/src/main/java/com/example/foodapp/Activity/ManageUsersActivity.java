@@ -1,8 +1,10 @@
-package com.example.foodapp;
+package com.example.foodapp.Activity;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.foodapp.R;
 
 public class ManageUsersActivity extends AppCompatActivity {
     @Override
