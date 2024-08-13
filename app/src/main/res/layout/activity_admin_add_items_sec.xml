@@ -6,139 +6,251 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
+    tools:background="#FFFFFF"
     tools:context=".Activity.AdminAddItemsSec">
 
     <!-- Title TextView -->
 
     <!-- Item Name EditText -->
-    <TextView
-        android:id="@+id/txtAddItems"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="75dp"
-        android:layout_marginBottom="683dp"
-        android:fontFamily="sans-serif-black"
-        android:text="Add Items"
-        android:textSize="24sp"
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@color/yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView6"
+            android:layout_width="68dp"
+            android:layout_height="65dp"
+            android:layout_marginStart="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/btnMngUsers"
+            app:layout_constraintHorizontal_bias="0.105"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.6"
+            app:srcCompat="@drawable/home" />
+
+        <ImageView
+            android:id="@+id/btnMngUsers"
+            android:layout_width="69dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="88dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/btnDiscountConfig"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/user_managemnt" />
+
+        <ImageView
+            android:id="@+id/btnDiscountConfig"
+            android:layout_width="66dp"
+            android:layout_height="74dp"
+            android:layout_marginStart="172dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/btnadminAddItems"
+            app:layout_constraintHorizontal_bias="0.071"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0"
+            app:srcCompat="@drawable/discounts" />
+
+        <ImageView
+            android:id="@+id/btnadminAddItems"
+            android:layout_width="69dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="252dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+
+            app:layout_constraintEnd_toStartOf="@+id/btnAddLocation"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/additems" />
+
+        <ImageView
+            android:id="@+id/btnAddLocation"
+            android:layout_width="68dp"
+            android:layout_height="66dp"
+            android:layout_marginStart="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.97"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.571"
+            app:srcCompat="@drawable/add_locations_1" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="371dp"
+        android:layout_height="797dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginEnd="11dp"
+        android:layout_marginBottom="93dp"
+        android:background="@drawable/yellow_background3"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.384">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="329dp"
+            android:layout_height="640dp"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="56dp"
+            android:layout_marginEnd="23dp"
+            android:background="@drawable/yellow_background"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtAddItems"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="107dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="108dp"
+                android:fontFamily="sans-serif-black"
+                android:text="Add Items"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/txtAIProname"
+                android:layout_width="300dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="11dp"
+                android:background="@drawable/white_background"
+                android:gravity="center"
+                android:hint="Enter Item Name"
+                android:inputType="text"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtAIProPrice"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/txtAIProCat"
+                android:layout_width="300dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="56dp"
+                android:background="@drawable/white_background"
+                android:gravity="center"
+                android:hint="Enter Category"
+                android:inputType="text"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnSelectImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/txtAIProPrice"
+                android:layout_width="300dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="11dp"
+                android:background="@drawable/white_background"
+                android:gravity="center"
+                android:hint="Enter Price"
+                android:inputType="numberDecimal"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/txtAIProCat"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <Button
+                android:id="@+id/btnSelectImage"
+                android:layout_width="300dp"
+                android:layout_height="41dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="20dp"
+                android:text="Select Image"
+                app:layout_constraintBottom_toTopOf="@+id/calendarView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <EditText
+                android:id="@+id/txtAIProDis"
+                android:layout_width="300dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="11dp"
+                android:background="@drawable/white_background"
+                android:gravity="center"
+                android:hint="Enter Product Description"
+                android:inputType="textMultiLine"
+                android:textSize="12dp"
+                app:layout_constraintBottom_toTopOf="@+id/btnSelectImage"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent" />
+
+            <CalendarView
+                android:id="@+id/calendarView"
+                android:layout_width="300dp"
+                android:layout_height="292dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="13dp"
+                android:layout_marginBottom="24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <Button
+            android:id="@+id/btnAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="142dp"
+            android:layout_marginEnd="142dp"
+            android:layout_marginBottom="26dp"
+            android:background="@drawable/button_background"
+            android:text="Add"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Price EditText -->
 
-    <EditText
-        android:id="@+id/txtAIProname"
-        android:layout_width="169dp"
-        android:layout_height="57dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="222dp"
-        android:layout_marginBottom="618dp"
-        android:hint="Item Name"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.777" />
-
     <!-- Category EditText -->
 
-    <EditText
-        android:id="@+id/txtAIProPrice"
-        android:layout_width="166dp"
-        android:layout_height="55dp"
-        android:layout_marginStart="224dp"
-        android:layout_marginTop="64dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="618dp"
-        android:hint="Price"
-        android:inputType="numberDecimal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtAIProCat"
-        android:layout_width="369dp"
-        android:layout_height="52dp"
-        android:layout_marginStart="21dp"
-        android:layout_marginTop="131dp"
-        android:layout_marginEnd="21dp"
-        android:layout_marginBottom="548dp"
-        android:hint="Category"
-        android:inputType="text"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_chainStyle="spread_inside"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <!-- Select Image Button -->
-    <Button
-        android:id="@+id/btnSelectImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="133dp"
-        android:layout_marginTop="199dp"
-        android:layout_marginEnd="133dp"
-        android:layout_marginBottom="484dp"
-        android:text="Select Image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- Product Description EditText -->
-    <EditText
-        android:id="@+id/txtAIProDis"
-        android:layout_width="324dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="263dp"
-        android:layout_marginEnd="44dp"
-        android:layout_marginBottom="422dp"
-        android:hint="Product Description"
-        android:inputType="textMultiLine"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <!-- CalendarView -->
 
     <!-- Add Button -->
-
-    <CalendarView
-        android:id="@+id/calendarView"
-        android:layout_width="295dp"
-        android:layout_height="292dp"
-        android:layout_marginTop="325dp"
-        android:layout_marginBottom="68dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/btnAdd"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="627dp"
-        android:layout_marginBottom="56dp"
-        android:text="Add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

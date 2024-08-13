@@ -22,31 +22,11 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("create table users(username TEXT primary key,email TEXT,password TEXT)");
 
-        db.execSQL("CREATE TABLE food(" +
-                "food_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "food_name TEXT, " +
-                "price REAL, " +
-                "category TEXT, " +
-                "image BLOB, " +
-                "description TEXT, " +
-                "date_added TEXT)");
-
-        db.execSQL("CREATE TABLE orders(" +
-                "order_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                "customer_id TEXT, " +
-                "food_ids TEXT, " +
-                "order_time TEXT, " +
-                "total_price REAL, " +
-                "FOREIGN KEY(customer_id) REFERENCES users(username))");
-
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS users");
-        db.execSQL("DROP TABLE IF EXISTS food");
-        db.execSQL("DROP TABLE IF EXISTS orders");
-        onCreate(db);
+        db.execSQL("drop table if exists users");
 
     }
 
@@ -78,28 +58,5 @@ public class DBHelper extends SQLiteOpenHelper {
             return true;
         }
         return false;
-    }
-
-    public boolean addFood(String foodName, double price, String category, byte[] image, String description, String dateAdded) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("food_name", foodName);
-        contentValues.put("price", price);
-        contentValues.put("category", category);
-        contentValues.put("image", image);
-        contentValues.put("description", description);
-        contentValues.put("date_added", dateAdded);
-
-        long result = db.insert("food", null, contentValues);
-        return result != -1;
-    }
-    public boolean addOrder(String customerId, String foodIds, String orderTime, double totalPrice) {
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("customer_id", customerId);
-        contentValues.put("food_ids", foodIds);
-        contentValues.put("order_time", orderTime);
-        contentValues.put("total_price", totalPrice);
-
-        long result = db.insert("orders", null, contentValues);
-        return result != -1;
     }
 }

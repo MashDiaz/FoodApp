@@ -76,7 +76,8 @@
                         android:id="@+id/search_bar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Search Here">
+                        android:hint="Search Here"
+                        android:drawableStart="@drawable/baseline_youtube_searched_for_24">
                     </AutoCompleteTextView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
@@ -151,7 +152,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintStart_toStartOf="@id/textView12"
                         app:layout_constraintTop_toBottomOf="@id/textView12"
-                        app:layout_constraintVertical_bias="0.0" />
+                        app:layout_constraintVertical_bias="0.0"
+                        android:onClick="displayFood"/>
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -244,7 +246,8 @@
                     app:layout_constraintEnd_toStartOf="@+id/imageView19"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/home" />
+                    app:srcCompat="@drawable/home"
+                    android:onClick="displayHome"/>
 
                 <ImageView
                     android:id="@+id/imageView19"
@@ -255,7 +258,8 @@
                     app:layout_constraintHorizontal_bias="0.872"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/food" />
+                    app:srcCompat="@drawable/food"
+                    android:onClick="displayFood"/>
 
                 <ImageView
                     android:id="@+id/imageView20"
@@ -267,7 +271,8 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.333"
-                    app:srcCompat="@drawable/drinks" />
+                    app:srcCompat="@drawable/drinks"
+                    android:onClick="displayDrinks"/>
 
                 <ImageView
                     android:id="@+id/imageView22"
@@ -278,7 +283,8 @@
                     app:layout_constraintHorizontal_bias="0.972"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/account__2_" />
+                    app:srcCompat="@drawable/account__2_"
+                    android:onClick="displayAccount"/>
 
                 <ImageView
                     android:id="@+id/imageView23"
@@ -291,7 +297,9 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
                     app:layout_constraintVertical_bias="0.571"
-                    app:srcCompat="@drawable/cart" />
+                    app:srcCompat="@drawable/cart"
+                    android:onClick="displayCart"/>
+
             </androidx.constraintlayout.widget.ConstraintLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
