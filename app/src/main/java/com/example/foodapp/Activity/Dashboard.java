@@ -53,11 +53,8 @@ public class Dashboard extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_dashboard2);
 
-        //set the array of strings in the xml to an array of strings
         String[] foodslist = getResources().getStringArray(R.array.search_items);
-        //get the view of the edittext id and set it to an object variable
         AutoCompleteTextView autoCompleteTextView = findViewById(R.id.search_bar);
-        /**make an array adapter in this context (this mainactivity class) with a default layout called simple list item 1 , and the String array of countriesList**/
         ArrayAdapter<String> adapter =
                 new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, foodslist);
         //set the adapter to the autocompleteTextview
