@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:background="#FFFFFF"
     tools:background="#FFFFFF"
-    tools:context=".AdminAddItemsSec">
+    tools:context=".Activity.AdminAddItemsSec">
 
     <!-- Title TextView -->
 
