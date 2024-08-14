@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public DBHelper(@Nullable Context context){
-        super(context,DBNAme,null,1);
+        super(context,DBNAme,null,2);
     }
 
     @Override
@@ -68,7 +68,7 @@ public class DBHelper extends SQLiteOpenHelper {
     }
 
     public boolean checkUsername(String username){
-
+        SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=db.rawQuery("select * from users where username = ?",new String[]{username});
         if(cursor.getCount()>0)
             return true;

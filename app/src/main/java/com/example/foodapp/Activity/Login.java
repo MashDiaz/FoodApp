@@ -22,8 +22,6 @@ public class Login extends AppCompatActivity {
 
         dbHelper = new DBHelper(this);
 
-        EditText username = findViewById(R.id.emailText);
-        EditText password = findViewById(R.id.passwordText);
     }
 
     public void goSignUp(View view) {
