@@ -42,6 +42,10 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
         holder.itemName.setText(item.getFoodName());
         holder.itemPrice.setText("Rs." + item.getPrice());
 
+        // Set the image for the ImageView
+        Bitmap bitmap = BitmapFactory.decodeByteArray(item.getImage(), 0, item.getImage().length);
+        holder.foodImage.setImageBitmap(bitmap);
+
         holder.addItem.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -70,12 +74,14 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView itemName, itemPrice, addItem;
+        ImageView foodImage; // Added ImageView for the food image
 
         public ItemViewHolder(View itemView) {
             super(itemView);
             itemName = itemView.findViewById(R.id.itemName);
             itemPrice = itemView.findViewById(R.id.itemPrice);
             addItem = itemView.findViewById(R.id.addItem);
+            foodImage = itemView.findViewById(R.id.itemImage); // Initialize the ImageView
         }
     }
 }

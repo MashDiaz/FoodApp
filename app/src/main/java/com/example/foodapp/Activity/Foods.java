@@ -1,7 +1,6 @@
 package com.example.foodapp.Activity;
 
 
-import static com.example.foodapp.R.id.button;
 import static com.example.foodapp.R.layout.activity_foods;
 
 import android.content.Intent;
@@ -9,8 +8,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
+import static com.example.foodapp.R.id.button;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -25,13 +26,18 @@ public class Foods extends AppCompatActivity {
     private ItemAdapter itemAdapter;
     private List<Item> itemList;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(activity_foods);
-
         recyclerView = findViewById(R.id.recyclerView);
-        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+
+
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
+        recyclerView.setLayoutManager(gridLayoutManager);
+
+       //recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DBHelper dbHelper = new DBHelper(this);
         itemList = dbHelper.getAllFood();

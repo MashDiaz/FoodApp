@@ -22,7 +22,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <!-- RecyclerView to display list of food items -->
+            <!-- RecyclerView to display list of food items in 2 columns -->
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerView"
                 android:layout_width="match_parent"
@@ -35,16 +35,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.0"
                 tools:listitem="@layout/item_layout" />
-
-            <Button
-                android:id="@+id/button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Button"
-                tools:layout_editor_absoluteX="273dp"
-                tools:layout_editor_absoluteY="559dp"
-                android:onClick="addToCart"/> <!-- replace with your item layout -->
-
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.constraintlayout.widget.ConstraintLayout
@@ -113,7 +103,14 @@
                 app:layout_constraintVertical_bias="0.571"
                 app:srcCompat="@drawable/cart" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
+        <Button
+            android:id="@+id/button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Button"
+            tools:layout_editor_absoluteX="273dp"
+            tools:layout_editor_absoluteY="559dp"
+            android:onClick="addToCart"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.drawerlayout.widget.DrawerLayout>
