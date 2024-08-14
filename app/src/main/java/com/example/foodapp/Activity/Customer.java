@@ -16,8 +16,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.activity.result.ActivityResultLauncher;
-import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
@@ -36,7 +34,6 @@ public class Customer extends AppCompatActivity {
     private static final int REQUEST_CAMERA_PERMISSION = 1;
     private static final int REQUEST_IMAGE_CAPTURE = 2;
 
-    DBHelper dbHelper;
     ImageView currentProfileImage;
     TextView currentName, currentEmail;
     EditText editTextName, editTextEmail;
@@ -48,8 +45,6 @@ public class Customer extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer);
-
-        dbHelper = new DBHelper(this);
 
         currentProfileImage = findViewById(R.id.imageViewCurrentProfile);
         currentName = findViewById(R.id.textViewCurrentName);
@@ -76,7 +71,8 @@ public class Customer extends AppCompatActivity {
                 String newEmail = editTextEmail.getText().toString();
 
                 if (!newName.isEmpty() && !newEmail.isEmpty()) {
-                    // Update user details in DB (for demo, we're just showing a toast)
+                    currentName.setText(newName);
+                    currentEmail.setText(newEmail);
                     Toast.makeText(Customer.this, "Profile updated successfully", Toast.LENGTH_LONG).show();
                 } else {
                     Toast.makeText(Customer.this, "Please fill out all fields", Toast.LENGTH_SHORT).show();
@@ -87,7 +83,6 @@ public class Customer extends AppCompatActivity {
         buttonViewOrderHistory.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic to view order history
                 Toast.makeText(Customer.this, "Order history clicked", Toast.LENGTH_LONG).show();
             }
         });
@@ -95,7 +90,6 @@ public class Customer extends AppCompatActivity {
         buttonViewFavorites.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Implement logic to view favorites
                 Toast.makeText(Customer.this, "Favorites clicked", Toast.LENGTH_LONG).show();
             }
         });
@@ -108,17 +102,19 @@ public class Customer extends AppCompatActivity {
                         ContextCompat.checkSelfPermission(Customer.this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                                 != PackageManager.PERMISSION_GRANTED) {
 
+                    Log.d("Permissions", "Requesting camera and storage permissions");
                     ActivityCompat.requestPermissions(Customer.this,
                             new String[]{Manifest.permission.CAMERA, Manifest.permission.WRITE_EXTERNAL_STORAGE},
                             REQUEST_CAMERA_PERMISSION);
                 } else {
+                    Log.d("Permissions", "Permissions granted, dispatching intent");
                     dispatchTakePictureIntent();
                 }
             }
         });
+
     }
 
-    // Handle permission request result
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
@@ -131,17 +127,14 @@ public class Customer extends AppCompatActivity {
         }
     }
 
-    // Start camera intent
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-            // Create a file to save the image
             File photoFile = null;
             try {
                 photoFile = createImageFile();
             } catch (IOException ex) {
-                // Error occurred while creating the File
-                Toast.makeText(this, "Error occurred while creating the file", Toast.LENGTH_SHORT).show();
+                Log.e("CameraIntent", "Error occurred while creating the file", ex);
             }
             if (photoFile != null) {
                 photoUri = FileProvider.getUriForFile(this,
@@ -149,37 +142,63 @@ public class Customer extends AppCompatActivity {
                         photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoUri);
                 startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+            } else {
+                Toast.makeText(this, "Error creating file for photo", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Log.d("CameraIntent", "No activity can handle the camera intent");
+            Toast.makeText(this, "No camera app available to handle the intent", Toast.LENGTH_SHORT).show();
         }
     }
 
-    // Handle image capture result
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
+        Log.d("onActivityResult", "Request code: " + requestCode + ", Result code: " + resultCode);
         if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
-            // Display the image in the ImageView
             Bitmap bitmap;
             try {
                 bitmap = MediaStore.Images.Media.getBitmap(this.getContentResolver(), photoUri);
                 currentProfileImage.setImageBitmap(bitmap);
+                Log.d("onActivityResult", "Image captured and set to ImageView");
             } catch (IOException e) {
                 e.printStackTrace();
+                Log.e("onActivityResult", "Failed to load image", e);
                 Toast.makeText(this, "Failed to load image", Toast.LENGTH_SHORT).show();
             }
+        } else {
+            Log.d("onActivityResult", "Image capture canceled or failed");
         }
     }
 
-    // Create an image file
     private File createImageFile() throws IOException {
-        // Create an image file name
+        Log.d("ImageFile", "Creating image file");
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFileName = "JPEG_" + timeStamp + "_";
         File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        return File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
+        File image = File.createTempFile(
+                imageFileName,
+                ".jpg",
+                storageDir
         );
+        return image;
+    }
+
+    // Handling button clicks through XML-defined onClick methods
+    public void onViewOrderHistoryClick(View view) {
+        Toast.makeText(this, "Order history clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onViewFavoritesClick(View view) {
+        Toast.makeText(this, "Favorites clicked", Toast.LENGTH_SHORT).show();
+    }
+
+    public void onUploadImageClick(View view) {
+        buttonUploadImage.performClick();
+    }
+
+    public void onSaveProfileClick(View view) {
+        buttonSaveProfile.performClick();
     }
 }

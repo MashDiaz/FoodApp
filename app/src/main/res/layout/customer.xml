@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/customer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Activity.Customer">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="-101dp">
 
+        <!-- Bottom Navigation Layout -->
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/constraintLayout3"
             android:layout_width="match_parent"
@@ -77,19 +82,21 @@
                 app:srcCompat="@drawable/cart" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
+        <!-- Main Content Layout -->
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="382dp"
-            android:layout_height="802dp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
             android:background="@drawable/yellow_background"
-            app:layout_constraintBottom_toTopOf="@+id/constraintLayout3"
+            app:layout_constraintBottom_toTopOf="@id/constraintLayout3"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
             <LinearLayout
-                android:layout_width="358dp"
-                android:layout_height="784dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="vertical"
+                android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -102,7 +109,6 @@
                     android:layout_height="100dp"
                     android:layout_gravity="center"
                     android:layout_marginBottom="16dp"
-
                     android:scaleType="centerCrop"
                     android:src="@drawable/baseline_account_circle_24" />
 
@@ -145,21 +151,18 @@
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/button_background"
                     android:onClick="onViewFavoritesClick"
-                    android:text="view favorites" />
+                    android:text="View Favorites" />
 
                 <!-- Profile Image Upload Section -->
-
                 <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/textViewEditDetails"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginTop="130dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="30dp"
-                    android:text="---------------------------Edit Details--------------------------"
-                    android:textSize="16dp" />
-
+                    android:layout_marginBottom="24dp"
+                    android:gravity="center"
+                    android:text="Edit Details"
+                    android:textSize="16sp"
+                    android:textStyle="bold" />
 
                 <!-- User Name -->
                 <EditText
@@ -168,21 +171,20 @@
                     android:layout_height="55dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/white_background"
-                    android:hint="  Enter Name"
+                    android:hint="Enter Name"
                     android:inputType="textPersonName" />
 
                 <!-- Email -->
-
-                <!-- Button to Upload New Image -->
                 <EditText
                     android:id="@+id/editTextEmail"
                     android:layout_width="match_parent"
                     android:layout_height="55dp"
                     android:layout_marginBottom="16dp"
                     android:background="@drawable/white_background"
-                    android:hint="  Enter Mail"
+                    android:hint="Enter Email"
                     android:inputType="textEmailAddress" />
 
+                <!-- Button to Upload New Image -->
                 <Button
                     android:id="@+id/buttonUploadImage"
                     android:layout_width="wrap_content"
@@ -191,8 +193,7 @@
                     android:layout_marginBottom="24dp"
                     android:background="@drawable/button_background"
                     android:onClick="onUploadImageClick"
-                    android:text="upload image" />
-
+                    android:text="Upload Image" />
 
                 <!-- Save Button -->
                 <Button
@@ -201,12 +202,8 @@
                     android:layout_height="wrap_content"
                     android:background="@drawable/button_background"
                     android:onClick="onSaveProfileClick"
-                    android:text="SAVE profile" />
-
+                    android:text="Save Profile" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </androidx.constraintlayout.widget.ConstraintLayout>
