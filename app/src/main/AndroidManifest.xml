@@ -31,6 +31,9 @@
             android:name=".Activity.AdminLogin"
             android:exported="false" />
         <activity
+            android:name=".Activity.ViewProduct"
+            android:exported="false" />
+        <activity
             android:name=".Activity.Cart"
             android:exported="false" />
         <activity
