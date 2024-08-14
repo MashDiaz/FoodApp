@@ -37,7 +37,7 @@ public class Drinks extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
         DBHelper dbHelper = new DBHelper(this);
-        itemList = dbHelper.getAllItems();
+        itemList = dbHelper.getAllDrinks();
         System.out.println(itemList);
 
         itemAdapter = new ItemAdapter(this, itemList);
