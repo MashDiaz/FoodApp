@@ -1,5 +1,6 @@
 package com.example.foodapp.Activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
@@ -18,37 +19,35 @@ public class Cart extends AppCompatActivity {
     private CartAdapter cartAdapter;
     private TextView totalPriceTextView;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
+        // Initialize RecyclerView and TextView
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
         totalPriceTextView = findViewById(R.id.totalPriceTextView);
 
+        // Retrieve the data passed from the Foods activity
         List<String> cartNames = getIntent().getStringArrayListExtra("cartNames");
         List<String> cartPrices = getIntent().getStringArrayListExtra("cartPrices");
 
-        if (cartNames == null) {
-            cartNames = new ArrayList<>();
-        }
-
-        if (cartPrices == null) {
-            cartPrices = new ArrayList<>();
-        }
-
+        // Initialize and set up the adapter
         cartAdapter = new CartAdapter(this, cartNames, cartPrices);
         cartRecyclerView.setLayoutManager(new LinearLayoutManager(this));
         cartRecyclerView.setAdapter(cartAdapter);
 
+        // Calculate and display the total price
         calculateTotal(cartPrices);
     }
 
     private void calculateTotal(List<String> cartPrices) {
-        int total = 0;
+        double total = 0;
         for (String price : cartPrices) {
-            total += Integer.parseInt(price);
+            total += Double.parseDouble(price);  // Use Double.parseDouble to handle decimal values
         }
-        totalPriceTextView.setText("Total: Rs. " + total);
+        totalPriceTextView.setText("Total: Rs. " + (int) total);  // Cast to int to remove decimals
     }
+
 }

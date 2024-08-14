@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -42,25 +43,19 @@ public class Foods extends AppCompatActivity {
         Button cartButton = findViewById(button);
         cartButton.setOnClickListener(v -> addToCart());
     }
+
     public void addToCart() {
         ArrayList<String> itemNames = itemAdapter.getItemNames();
         ArrayList<String> itemPrices = itemAdapter.getItemPrices();
 
         // Intent to move to the cart activity
         Intent intent = new Intent(Foods.this, Cart.class);
-        intent.putStringArrayListExtra("itemNames", itemNames);
-        intent.putStringArrayListExtra("itemPrices", itemPrices);
+        intent.putStringArrayListExtra("cartNames", itemNames);
+        intent.putStringArrayListExtra("cartPrices", itemPrices);
         startActivity(intent);
 
     }
-    public void goCart(View view)
-    {
-        try {
-            Intent startIntent = new Intent(this, Cart.class);
-            startActivity(startIntent);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
-    }
+
+
 
 }

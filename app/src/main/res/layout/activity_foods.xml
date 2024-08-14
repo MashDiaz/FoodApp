@@ -43,7 +43,7 @@
                 android:text="Button"
                 tools:layout_editor_absoluteX="273dp"
                 tools:layout_editor_absoluteY="559dp"
-                android:onClick="goCart"/> <!-- replace with your item layout -->
+                android:onClick="addToCart"/> <!-- replace with your item layout -->
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
