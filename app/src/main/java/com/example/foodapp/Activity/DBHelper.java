@@ -167,4 +167,21 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         return itemList;
     }
+
+    public String getLoggedInUser(String usernameOrEmail) {
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        // Query to retrieve the user's name based on the username or email
+        Cursor cursor = db.rawQuery("SELECT username FROM users WHERE username = ? OR email = ?", new String[]{usernameOrEmail, usernameOrEmail});
+
+        if (cursor.moveToFirst()) {
+            // Retrieve the username from the cursor
+            @SuppressLint("Range") String username = cursor.getString(cursor.getColumnIndex("username"));
+            cursor.close();
+            return username;
+        } else {
+            cursor.close();
+            return null; // User not found
+        }
+    }
 }

@@ -1,6 +1,7 @@
 package com.example.foodapp.Activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -47,11 +48,18 @@ public class Login extends AppCompatActivity {
             if (isValid) {
                 Toast.makeText(Login.this, "Login Successful", Toast.LENGTH_LONG).show();
                 // Proceed to the next activity after successful login
+                saveUserSession(user); // Save session
                 Intent intent = new Intent(this, Dashboard.class);
                 startActivity(intent);
             } else {
                 Toast.makeText(Login.this, "Invalid Username or Password", Toast.LENGTH_LONG).show();
             }
         }
+    }
+    private void saveUserSession(String username) {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("loggedInUser", username);
+        editor.apply();
     }
 }
