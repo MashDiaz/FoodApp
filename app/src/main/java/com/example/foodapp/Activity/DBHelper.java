@@ -110,15 +110,18 @@ public class DBHelper extends SQLiteOpenHelper {
     public List<Item> getAllItems() {
         List<Item> itemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM items", null);
+        Cursor cursor = db.rawQuery("SELECT * FROM food", null);
 
         if (cursor.moveToFirst()) {
             do {
-                @SuppressLint("Range") String name = cursor.getString(cursor.getColumnIndex("name"));
-                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+                @SuppressLint("Range") int foodId = cursor.getInt(cursor.getColumnIndex("food_id"));
+                @SuppressLint("Range") String foodName = cursor.getString(cursor.getColumnIndex("food_name"));
+                @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                @SuppressLint("Range") String category = cursor.getString(cursor.getColumnIndex("category"));
                 @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
 
-                itemList.add(new Item(name, description, image));
+                itemList.add(new Item(foodId, foodName, price, category, image, description));
             } while (cursor.moveToNext());
         }
         cursor.close();

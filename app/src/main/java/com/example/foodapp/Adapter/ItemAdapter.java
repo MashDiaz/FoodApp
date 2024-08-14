@@ -1,5 +1,6 @@
 package com.example.foodapp.Adapter;
 
+import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.view.LayoutInflater;
@@ -16,27 +17,31 @@ import com.example.foodapp.R;
 
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
+
+    private Context context;
     private List<Item> itemList;
 
-    public ItemAdapter(List<Item> itemList) {
+    public ItemAdapter(Context context, List<Item> itemList) {
+        this.context = context;
         this.itemList = itemList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_layout, parent, false);
-        return new ViewHolder(view);
+    public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(context).inflate(R.layout.item_layout, parent, false);
+        return new ItemViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
         Item item = itemList.get(position);
-        holder.itemName.setText(item.getName());
-        holder.itemDescription.setText(item.getDescription());
+        holder.foodName.setText(item.getFoodName());
+        holder.price.setText("Rs." + item.getPrice());
+
         Bitmap bitmap = BitmapFactory.decodeByteArray(item.getImage(), 0, item.getImage().length);
-        holder.itemImage.setImageBitmap(bitmap);
+        holder.foodImage.setImageBitmap(bitmap);
     }
 
     @Override
@@ -44,15 +49,15 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ViewHolder> {
         return itemList.size();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView itemName, itemDescription;
-        ImageView itemImage;
+    public static class ItemViewHolder extends RecyclerView.ViewHolder {
+        TextView foodName, price;
+        ImageView foodImage;
 
-        public ViewHolder(@NonNull View itemView) {
+        public ItemViewHolder(@NonNull View itemView) {
             super(itemView);
-            itemName = itemView.findViewById(R.id.itemName);
-            itemDescription = itemView.findViewById(R.id.itemDescription);
-            itemImage = itemView.findViewById(R.id.itemImage);
+            foodName = itemView.findViewById(R.id.itemName); // Title
+            price = itemView.findViewById(R.id.itemPrice); // Price
+            foodImage = itemView.findViewById(R.id.itemImage); // Image
         }
     }
 }

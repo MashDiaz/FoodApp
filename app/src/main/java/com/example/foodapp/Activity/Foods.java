@@ -26,8 +26,9 @@ public class Foods extends AppCompatActivity {
 
         DBHelper dbHelper = new DBHelper(this);
         itemList = dbHelper.getAllItems();
+        System.out.println(itemList);
 
-        itemAdapter = new ItemAdapter(itemList);
+        itemAdapter = new ItemAdapter(this, itemList);
         recyclerView.setAdapter(itemAdapter);
     }
 }
