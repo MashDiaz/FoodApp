@@ -31,7 +31,7 @@
             android:name=".Activity.AdminLogin"
             android:exported="false" />
         <activity
-            android:name=".Activity.Cart"
+            android:name=".Activity.MainActivity"
             android:exported="false" />
         <activity
             android:name=".Activity.detail_activity"
@@ -71,7 +71,7 @@
             android:exported="false" />
 
         <activity
-            android:name=".Activity.MainActivity"
+            android:name=".Activity.Cart"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

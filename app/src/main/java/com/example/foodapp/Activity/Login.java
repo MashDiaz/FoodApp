@@ -40,7 +40,7 @@ public class Login extends AppCompatActivity {
             Intent intent = new Intent(this, AdminDashboard.class);
             startActivity(intent);
         }
-        if (user.equals("") || pwd.equals("")) {
+        else if (user.equals("") || pwd.equals("")) {
             Toast.makeText(Login.this, "Please fill all fields", Toast.LENGTH_LONG).show();
         } else {
             boolean isValid = dbHelper.checkUsernamePassword(user, pwd);
