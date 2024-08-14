@@ -30,38 +30,21 @@
                     android:layout_marginEnd="24dp">
 
                     <TextView
-                        android:id="@+id/textView11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
+                        android:id="@+id/customerTxt"
+                        android:layout_width="326dp"
+                        android:layout_height="57dp"
                         android:layout_marginTop="4dp"
+                        android:layout_marginEnd="100dp"
+                        android:gravity="center"
                         android:text="  Hello Customer !"
+                        android:textColor="@color/black"
+                        android:textSize="25dp"
+                        android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0" />
-
-                    <ImageView
-                        android:id="@+id/imageView13"
-                        android:layout_width="35dp"
-                        android:layout_height="33dp"
-                        android:layout_marginStart="4dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@id/textView11"
-                        app:layout_constraintVertical_bias="0.071"
-                        app:srcCompat="@drawable/baseline_add_location_24" />
-
-                    <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="176dp"
-                        android:layout_height="32dp"
-                        app:layout_constraintBottom_toBottomOf="@id/imageView13"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.0"
-                        app:layout_constraintStart_toEndOf="@id/imageView13"
-                        app:layout_constraintTop_toTopOf="@id/imageView13"
-                        app:layout_constraintVertical_bias="0.166" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <LinearLayout
@@ -76,9 +59,8 @@
                         android:id="@+id/search_bar"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="Search Here"
-                        android:drawableStart="@drawable/baseline_youtube_searched_for_24">
-                    </AutoCompleteTextView>
+                        android:drawableStart="@drawable/baseline_youtube_searched_for_24"
+                        android:hint="Search Here"></AutoCompleteTextView>
 
                     <androidx.constraintlayout.widget.ConstraintLayout
                         android:layout_width="50dp"
@@ -205,16 +187,52 @@
                         android:textColor="@color/yellow" />
                 </LinearLayout>
 
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/bestView"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="23dp"
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="360dp"
+                    android:layout_height="177dp"
+                    android:layout_gravity="center"
                     android:layout_marginTop="10dp"
-                    android:layout_marginEnd="23dp"
-                    android:clipToPadding="false"
-                    android:paddingStart="12dp"
-                    android:paddingEnd="12dp" />
+                    android:background="@drawable/yellow_background">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="280dp"
+                        android:layout_height="82dp"
+                        android:layout_marginBottom="18dp"
+                        android:background="@drawable/yellow_background4"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent">
+
+                        <TextView
+                            android:id="@+id/textView9"
+                            android:layout_width="199dp"
+                            android:layout_height="77dp"
+                            android:layout_marginTop="4dp"
+                            android:gravity="center"
+                            android:text="FB10 for 10% discount\nFB20 for 20% discount\nFB30 for 30% discount"
+                            android:textColor="@color/white"
+                            android:textSize="18dp"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <TextView
+                        android:id="@+id/textView8"
+                        android:layout_width="290dp"
+                        android:layout_height="72dp"
+                        android:layout_marginTop="4dp"
+                        android:gravity="center"
+                        android:text="Get Discount Up to 40% off \n Using These Promo"
+                        android:textColor="@color/yellow"
+                        android:textSize="20dp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
 
