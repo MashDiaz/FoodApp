@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public DBHelper(@Nullable Context context){
-        super(context,DBNAme,null,2);
+        super(context,DBNAme,null,3);
     }
 
     @Override
@@ -111,6 +111,46 @@ public class DBHelper extends SQLiteOpenHelper {
         List<Item> itemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery("SELECT * FROM food", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int foodId = cursor.getInt(cursor.getColumnIndex("food_id"));
+                @SuppressLint("Range") String foodName = cursor.getString(cursor.getColumnIndex("food_name"));
+                @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                @SuppressLint("Range") String category = cursor.getString(cursor.getColumnIndex("category"));
+                @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+
+                itemList.add(new Item(foodId, foodName, price, category, image, description));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return itemList;
+    }
+    public  List<Item>getAllDrinks(){
+        List<Item> itemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM food WHERE category = 'Drink'", null);
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int foodId = cursor.getInt(cursor.getColumnIndex("food_id"));
+                @SuppressLint("Range") String foodName = cursor.getString(cursor.getColumnIndex("food_name"));
+                @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                @SuppressLint("Range") String category = cursor.getString(cursor.getColumnIndex("category"));
+                @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+
+                itemList.add(new Item(foodId, foodName, price, category, image, description));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return itemList;
+    }
+    public  List<Item>getAllFood(){
+        List<Item> itemList = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT * FROM food WHERE category = 'Food'", null);
 
         if (cursor.moveToFirst()) {
             do {
