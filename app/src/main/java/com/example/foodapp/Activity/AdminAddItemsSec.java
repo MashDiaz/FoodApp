@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
@@ -118,5 +119,11 @@ public class AdminAddItemsSec extends AppCompatActivity {
             e.printStackTrace();
             return null;
         }
+
+    }
+    public void displayProduct(View view)
+    {
+        Intent startIntent = new Intent(this, ViewProduct.class);
+        startActivity(startIntent);
     }
 }

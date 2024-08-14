@@ -229,17 +229,31 @@
             android:id="@+id/btnAdd"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="142dp"
-            android:layout_marginEnd="142dp"
-            android:layout_marginBottom="26dp"
+            android:layout_marginStart="55dp"
+            android:layout_marginEnd="228dp"
+            android:layout_marginBottom="28dp"
             android:background="@drawable/button_background"
             android:text="Add"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/btnviewallproducts"
+            android:layout_width="161dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="23dp"
+            android:layout_marginEnd="44dp"
+            android:layout_marginBottom="28dp"
+            android:background="@drawable/button_background"
+            android:text="VIEW PRODUCTS"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            android:onClick="onAddClick"/>
+            app:layout_constraintStart_toEndOf="@+id/btnAdd"
+            android:onClick="displayProduct"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Price EditText -->
