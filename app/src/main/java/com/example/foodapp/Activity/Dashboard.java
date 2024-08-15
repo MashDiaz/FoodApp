@@ -56,10 +56,7 @@ public class Dashboard extends AppCompatActivity {
         String loggedInUser = sharedPreferences.getString("loggedInUser", null);
 
         // Find the TextView and set the username
-        TextView usernameTextView = findViewById(R.id.customerTxt); // Replace with your TextView ID
-        if (loggedInUser != null) {
-            usernameTextView.setText("Hello, " + getLoggedInUser(loggedInUser));
-        }
+
 
         // Setting up AutoCompleteTextView for search bar
         String[] foodslist = getResources().getStringArray(R.array.search_items);
@@ -76,11 +73,7 @@ public class Dashboard extends AppCompatActivity {
     public static void openDrawer(DrawerLayout drawerLayout) {
         drawerLayout.openDrawer(GravityCompat.START);
     }
-    public String getLoggedInUser(String username){
-        DBHelper dbHelper = new DBHelper(Dashboard.this);
-        String loggedInUser = dbHelper.getLoggedInUser(username);
-        return loggedInUser;
-    }
+
 
     public static void closeDrawer(DrawerLayout drawerLayout) {
         if (drawerLayout.isDrawerOpen(GravityCompat.START)) {

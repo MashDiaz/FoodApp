@@ -62,6 +62,33 @@ public class Foods extends AppCompatActivity {
 
     }
 
+    public void displayFood(View view)
+    {
+        Intent startIntent = new Intent(this , Foods.class);
+        startActivity(startIntent);
+    }
+    public void displayDrinks(View view)
+    {
+        Intent startIntent = new Intent(this , Drinks.class);
+        startActivity(startIntent);
+    }
+    public void displayAccount(View view)
+    {
+        Intent startIntent = new Intent(this , Dashboard.class);
+        startActivity(startIntent);
+    }
+    public void displayHome(View view)
+    {
+        Intent startIntent = new Intent(this , Dashboard.class);
+        startActivity(startIntent);
+    }
+
+    public void displayCart(View view)
+    {
+        Intent startIntent = new Intent(this , Cart.class);
+        startActivity(startIntent);
+    }
+
 
 
 }
