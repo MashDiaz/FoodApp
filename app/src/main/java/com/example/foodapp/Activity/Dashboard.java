@@ -106,7 +106,7 @@ public class Dashboard extends AppCompatActivity {
     }
     public void displayAccount(View view)
     {
-        Intent startIntent = new Intent(this , Dashboard.class);
+        Intent startIntent = new Intent(this , UserAccount.class);
         startActivity(startIntent);
     }
     public void displayHome(View view)

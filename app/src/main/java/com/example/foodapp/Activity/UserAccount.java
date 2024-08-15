@@ -1,10 +1,13 @@
 package com.example.foodapp.Activity;
+
 import android.content.ContentValues;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -15,7 +18,6 @@ import android.widget.Toast;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.foodapp.Activity.DBHelper;
 import com.example.foodapp.R;
 
 public class UserAccount extends AppCompatActivity {
@@ -31,9 +33,6 @@ public class UserAccount extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.customer);
-        }
-    }
-/**
 
         dbHelper = new DBHelper(this);
 
@@ -58,18 +57,26 @@ public class UserAccount extends AppCompatActivity {
     }
 
     private void loadUserProfile() {
+        // Assuming the logged-in user's username is passed to this activity
+        String loggedInUsername = getLoggedInUser(); // Get the logged-in user's username
+        Log.d("UserAccount", "Logged in user: " + loggedInUsername);
+
         // Fetch user details from the database
-        Cursor cursor = dbHelper.getUserDetails();
-        if (cursor.moveToFirst()) {
-            String name = cursor.getString(cursor.getColumnIndexOrThrow("username"));
-            String email = cursor.getString(cursor.getColumnIndexOrThrow("email"));
-            // Set data to TextViews and EditTexts
-            textViewCurrentName.setText(name);
-            textViewCurrentEmail.setText(email);
-            editTextName.setText(name);
-            editTextEmail.setText(email);
-        }
-        cursor.close();
+        textViewCurrentName.setText("Rakitha ");
+        textViewCurrentEmail.setText("tharupathir@gmail.com");
+        editTextName.setText("Rakitha");
+        editTextEmail.setText("tharupathir@gmail.com");
+
+    }
+
+
+
+    private String getLoggedInUser() {
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        String loggedInUser = sharedPreferences.getString("loggedInUser", null);
+        Log.d("UserAccount", "Logged in user: " + loggedInUser);
+
+        return loggedInUser;
     }
 
     private void openImageSelector() {
@@ -106,11 +113,10 @@ public class UserAccount extends AppCompatActivity {
     }
 
     private void viewOrderHistory() {
-        // order history ekadanna
+        // Implement viewing order history
     }
 
     private void viewFavorites() {
-        // fav tika hadanna
+        // Implement viewing favorites
     }
 }
-**/

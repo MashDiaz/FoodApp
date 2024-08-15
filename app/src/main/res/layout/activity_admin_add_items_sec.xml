@@ -252,8 +252,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/btnAdd"
-            android:onClick="displayProduct"/>
+            app:layout_constraintStart_toEndOf="@+id/btnAdd" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <!-- Price EditText -->

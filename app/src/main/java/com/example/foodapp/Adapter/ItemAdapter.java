@@ -13,6 +13,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.foodapp.Activity.DBHelper;
 import com.example.foodapp.Activity.Item;
 import com.example.foodapp.R;
 
@@ -57,6 +58,18 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
                 Toast.makeText(context, "Added: " + item.getFoodName() + " - Rs." + item.getPrice(), Toast.LENGTH_SHORT).show();
             }
         });
+        holder.favoriteIcon.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DBHelper dbHelper = new DBHelper(context);
+                boolean isAdded = dbHelper.addFavourite("currentUsername", item.getFoodId()); // Replace "currentUsername" with the actual logged-in username
+                if (isAdded) {
+                    Toast.makeText(context, item.getFoodName() + " added to favourites", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Failed to add to favourites", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
     }
 
     @Override
@@ -74,7 +87,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
     public class ItemViewHolder extends RecyclerView.ViewHolder {
         TextView itemName, itemPrice, addItem;
-        ImageView foodImage; // Added ImageView for the food image
+        ImageView foodImage,favoriteIcon ;// Added ImageView for the food image
 
         public ItemViewHolder(View itemView) {
             super(itemView);
@@ -82,6 +95,7 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
             itemPrice = itemView.findViewById(R.id.itemPrice);
             addItem = itemView.findViewById(R.id.addItem);
             foodImage = itemView.findViewById(R.id.itemImage); // Initialize the ImageView
+            favoriteIcon = itemView.findViewById(R.id.favoriteIcon); // Initialize the favoriteIcon
         }
     }
 }
