@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public DBHelper(@Nullable Context context){
-        super(context,DBNAme,null,4);
+        super(context,DBNAme,null,5);
     }
 
     @Override
@@ -126,6 +126,37 @@ public class DBHelper extends SQLiteOpenHelper {
         cursor.close();
         return itemList;
     }
+    public boolean addFavourite(String userId, int foodId) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("user_id", userId);
+        contentValues.put("food_id", foodId);
+
+        long result = db.insert("favourites", null, contentValues);
+        return result != -1;
+    }
+
+    public List<Item> getAllFavourites(String userId) {
+        List<Item> favouriteItems = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT food.* FROM food " +
+                "INNER JOIN favourites ON food.food_id = favourites.food_id " +
+                "WHERE favourites.user_id = ?", new String[]{userId});
+
+        if (cursor.moveToFirst()) {
+            do {
+                @SuppressLint("Range") int foodId = cursor.getInt(cursor.getColumnIndex("food_id"));
+                @SuppressLint("Range") String foodName = cursor.getString(cursor.getColumnIndex("food_name"));
+                @SuppressLint("Range") double price = cursor.getDouble(cursor.getColumnIndex("price"));
+                @SuppressLint("Range") String category = cursor.getString(cursor.getColumnIndex("category"));
+                @SuppressLint("Range") byte[] image = cursor.getBlob(cursor.getColumnIndex("image"));
+                @SuppressLint("Range") String description = cursor.getString(cursor.getColumnIndex("description"));
+
+                favouriteItems.add(new Item(foodId, foodName, price, category, image, description));
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        return favouriteItems;
+    }
+
     public  List<Item>getAllDrinks(){
         List<Item> itemList = new ArrayList<>();
         SQLiteDatabase db = this.getReadableDatabase();
@@ -177,6 +208,27 @@ public class DBHelper extends SQLiteOpenHelper {
 
         long result = db.insert("orders", null, contentValues);
         return result != -1;
+    }
+    public int getTotalOrders() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT COUNT(*) FROM orders", null);
+        int count = 0;
+        if (cursor.moveToFirst()) {
+            count = cursor.getInt(0);
+        }
+        cursor.close();
+        return count;
+    }
+
+    public double getTotalRevenue() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery("SELECT SUM(amount) FROM orders", null);
+        double revenue = 0;
+        if (cursor.moveToFirst()) {
+            revenue = cursor.getDouble(0);
+        }
+        cursor.close();
+        return revenue;
     }
 
 }

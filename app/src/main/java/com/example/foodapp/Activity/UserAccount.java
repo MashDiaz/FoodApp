@@ -44,22 +44,10 @@ public class UserAccount extends AppCompatActivity {
 
         // Set initial data from the database
         loadUserProfile();
-
-        Button buttonUploadImage = findViewById(R.id.buttonUploadImage);
-        Button buttonSaveProfile = findViewById(R.id.buttonSaveProfile);
-        Button buttonViewOrderHistory = findViewById(R.id.buttonViewOrderHistory);
-        Button buttonViewFavorites = findViewById(R.id.buttonViewFavorites);
-
-        buttonUploadImage.setOnClickListener(v -> openImageSelector());
-        buttonSaveProfile.setOnClickListener(v -> saveUserProfile());
-        buttonViewOrderHistory.setOnClickListener(v -> viewOrderHistory());
-        buttonViewFavorites.setOnClickListener(v -> viewFavorites());
     }
 
     private void loadUserProfile() {
         // Assuming the logged-in user's username is passed to this activity
-        String loggedInUsername = getLoggedInUser(); // Get the logged-in user's username
-        Log.d("UserAccount", "Logged in user: " + loggedInUsername);
 
         // Fetch user details from the database
         textViewCurrentName.setText("Rakitha ");
@@ -71,52 +59,5 @@ public class UserAccount extends AppCompatActivity {
 
 
 
-    private String getLoggedInUser() {
-        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
-        String loggedInUser = sharedPreferences.getString("loggedInUser", null);
-        Log.d("UserAccount", "Logged in user: " + loggedInUser);
 
-        return loggedInUser;
-    }
-
-    private void openImageSelector() {
-        Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-        startActivityForResult(intent, PICK_IMAGE_REQUEST);
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            imageUri = data.getData();
-            imageViewCurrentProfile.setImageURI(imageUri);
-            Toast.makeText(this, "Image selected", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void saveUserProfile() {
-        String newName = editTextName.getText().toString();
-        String newEmail = editTextEmail.getText().toString();
-
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("username", newName);
-        contentValues.put("email", newEmail);
-
-        boolean isUpdated = dbHelper.updateUserDetails(contentValues);
-
-        if (isUpdated) {
-            Toast.makeText(this, "Profile updated successfully", Toast.LENGTH_SHORT).show();
-            loadUserProfile(); // Refresh the profile with updated data
-        } else {
-            Toast.makeText(this, "Profile update failed", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    private void viewOrderHistory() {
-        // Implement viewing order history
-    }
-
-    private void viewFavorites() {
-        // Implement viewing favorites
-    }
 }
