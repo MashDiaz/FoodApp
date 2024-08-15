@@ -22,14 +22,14 @@ import java.util.List;
 public class Cart extends AppCompatActivity {
     private RecyclerView cartRecyclerView;
     private CartAdapter cartAdapter;
-    private TextView totalPriceTextView;
+
     private TextView priceTextView11;
     private EditText promoEditText;
     private Button checkPromoButton;
     private Button placeOrderButton; // Button6 for placing an order
     private double total;
     private DBHelper dbHelper;
-    private String loggedInEmail; // This will hold the logged-in user's email
+    private String loggedInUser; // This will hold the logged-in user's username
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -38,17 +38,14 @@ public class Cart extends AppCompatActivity {
         setContentView(activity_cart);
 
         SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
-        String loggedInUser = sharedPreferences.getString("loggedInUser", null);
+        loggedInUser = sharedPreferences.getString("loggedInUser", null);
 
         // Initialize DBHelper
         dbHelper = new DBHelper(this);
 
-        // Assume loggedInEmail is retrieved when the user logs in
-        loggedInEmail = getIntent().getStringExtra("user_email");
 
         // Initialize RecyclerView, TextView, EditText, and Button
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
-        totalPriceTextView = findViewById(R.id.totalPriceTextView);
         priceTextView11 = findViewById(R.id.textView11);
         promoEditText = findViewById(R.id.textView29);
         checkPromoButton = findViewById(R.id.button7);
@@ -114,30 +111,30 @@ public class Cart extends AppCompatActivity {
     }
 
     private void placeOrder(List<String> cartNames, List<String> cartPrices) {
-        // Get the username using the email
-        String username = dbHelper.getLoggedInUser(loggedInEmail);
-
-        if (username != null) {
+        // Get the username from SharedPreferences
+        if (loggedInUser != null) {
             // Insert order details into the database
             for (int i = 0; i < cartNames.size(); i++) {
-                dbHelper.addOrderDetails(username, cartNames.get(i), Double.parseDouble(cartPrices.get(i)));
+                dbHelper.addOrderDetails(loggedInUser, cartNames.get(i), Double.parseDouble(cartPrices.get(i)));
             }
+
+            // Show a success message
             Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
 
             // Clear the cart items
             cartNames.clear();
             cartPrices.clear();
-            cartAdapter.notifyDataSetChanged(); // Notify the adapter that data has changed
+            cartAdapter.notifyDataSetChanged(); // Notify the adapter that the data has changed
 
             // Reset the total price
             total = 0;
-            displayTotal(total); // Update the total price displayed to the user
+            displayTotal(total);
 
-            // Optionally, reset the promo code field if desired
+            // Optionally clear the promo code input
             promoEditText.setText("");
-
         } else {
             Toast.makeText(this, "Failed to place order. User not found.", Toast.LENGTH_SHORT).show();
         }
     }
+
 }
