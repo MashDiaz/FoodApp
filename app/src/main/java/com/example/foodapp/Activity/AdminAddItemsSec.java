@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CalendarView;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.Toast;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -27,7 +29,8 @@ public class AdminAddItemsSec extends AppCompatActivity {
     private Uri imageUri;
     private DBHelper dbHelper;
 
-    private EditText etItemName, etPrice, etCategory, etDescription;
+    private EditText etItemName, etPrice, etDescription;
+    private Spinner etCategory;  // Change to Spinner
     private CalendarView calendarView;
     private String selectedDate;
 
@@ -39,7 +42,7 @@ public class AdminAddItemsSec extends AppCompatActivity {
         // Initialize UI components
         etItemName = findViewById(R.id.txtAIProname);
         etPrice = findViewById(R.id.txtAIProPrice);
-        etCategory = findViewById(R.id.txtAIProCat);
+        etCategory = findViewById(R.id.txtAIProCat);  // Change to Spinner
         etDescription = findViewById(R.id.txtAIProDis);
         calendarView = findViewById(R.id.calendarView);
 
@@ -70,7 +73,7 @@ public class AdminAddItemsSec extends AppCompatActivity {
         // Get data from form fields
         String itemName = etItemName.getText().toString().trim();
         String priceStr = etPrice.getText().toString().trim();
-        String category = etCategory.getText().toString().trim();
+        String category = etCategory.getSelectedItem().toString().trim();  // Get selected item from Spinner
         String description = etDescription.getText().toString().trim();
 
         // Validate inputs
@@ -119,10 +122,9 @@ public class AdminAddItemsSec extends AppCompatActivity {
             e.printStackTrace();
             return null;
         }
-
     }
-    public void displayProduct(View view)
-    {
+
+    public void displayProduct(View view) {
         Intent startIntent = new Intent(this, ViewProduct.class);
         startActivity(startIntent);
     }

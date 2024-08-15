@@ -9,4 +9,11 @@
         <item>Tea  </item>
         <item>Burger </item>
     </string-array>
+
+    <!-- Spinner Items -->
+    <string-array name="spinner_items">
+        <item>Food</item>
+        <item>Drink</item>
+    </string-array>
+
 </resources>
