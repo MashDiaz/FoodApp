@@ -1,6 +1,9 @@
 package com.example.foodapp.Activity;
 
+import static com.example.foodapp.R.layout.activity_cart;
+
 import android.annotation.SuppressLint;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -23,13 +26,25 @@ public class Cart extends AppCompatActivity {
     private TextView priceTextView11;
     private EditText promoEditText;
     private Button checkPromoButton;
-    private double total; // Store the total amount
+    private Button placeOrderButton; // Button6 for placing an order
+    private double total;
+    private DBHelper dbHelper;
+    private String loggedInEmail; // This will hold the logged-in user's email
 
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_cart);
+        setContentView(activity_cart);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("UserSession", MODE_PRIVATE);
+        String loggedInUser = sharedPreferences.getString("loggedInUser", null);
+
+        // Initialize DBHelper
+        dbHelper = new DBHelper(this);
+
+        // Assume loggedInEmail is retrieved when the user logs in
+        loggedInEmail = getIntent().getStringExtra("user_email");
 
         // Initialize RecyclerView, TextView, EditText, and Button
         cartRecyclerView = findViewById(R.id.cartRecyclerView);
@@ -37,6 +52,7 @@ public class Cart extends AppCompatActivity {
         priceTextView11 = findViewById(R.id.textView11);
         promoEditText = findViewById(R.id.textView29);
         checkPromoButton = findViewById(R.id.button7);
+        placeOrderButton = findViewById(R.id.button6); // Button6 for placing an order
 
         // Retrieve the data passed from the Foods activity
         List<String> cartNames = getIntent().getStringArrayListExtra("cartNames");
@@ -55,6 +71,9 @@ public class Cart extends AppCompatActivity {
             String promoCode = promoEditText.getText().toString().trim();
             applyPromoCode(promoCode);
         });
+
+        // Set up the place order button
+        placeOrderButton.setOnClickListener(v -> placeOrder(cartNames, cartPrices));
     }
 
     private void calculateTotal(List<String> cartPrices) {
@@ -92,5 +111,33 @@ public class Cart extends AppCompatActivity {
         double discountedTotal = total - (total * discount);
         int discountedTot = (int) discountedTotal;
         displayTotal(discountedTot);
+    }
+
+    private void placeOrder(List<String> cartNames, List<String> cartPrices) {
+        // Get the username using the email
+        String username = dbHelper.getLoggedInUser(loggedInEmail);
+
+        if (username != null) {
+            // Insert order details into the database
+            for (int i = 0; i < cartNames.size(); i++) {
+                dbHelper.addOrderDetails(username, cartNames.get(i), Double.parseDouble(cartPrices.get(i)));
+            }
+            Toast.makeText(this, "Order placed successfully!", Toast.LENGTH_SHORT).show();
+
+            // Clear the cart items
+            cartNames.clear();
+            cartPrices.clear();
+            cartAdapter.notifyDataSetChanged(); // Notify the adapter that data has changed
+
+            // Reset the total price
+            total = 0;
+            displayTotal(total); // Update the total price displayed to the user
+
+            // Optionally, reset the promo code field if desired
+            promoEditText.setText("");
+
+        } else {
+            Toast.makeText(this, "Failed to place order. User not found.", Toast.LENGTH_SHORT).show();
+        }
     }
 }

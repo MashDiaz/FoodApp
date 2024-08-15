@@ -19,7 +19,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     public DBHelper(@Nullable Context context){
-        super(context,DBNAme,null,3);
+        super(context,DBNAme,null,4);
     }
 
     @Override
@@ -38,9 +38,8 @@ public class DBHelper extends SQLiteOpenHelper {
         db.execSQL("CREATE TABLE orders(" +
                 "order_id INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 "customer_id TEXT, " +
-                "food_ids TEXT, " +
-                "order_time TEXT, " +
-                "total_price REAL, " +
+                " item_name TEXT, " +
+                "price REAL, " +
                 "FOREIGN KEY(customer_id) REFERENCES users(username))");
 
     }
@@ -184,4 +183,15 @@ public class DBHelper extends SQLiteOpenHelper {
             return null; // User not found
         }
     }
+
+    public boolean addOrderDetails(String username, String itemName, double price) {
+        ContentValues contentValues = new ContentValues();
+        contentValues.put("username", username);
+        contentValues.put("item_name", itemName);
+        contentValues.put("price", price);
+
+        long result = db.insert("orders", null, contentValues);
+        return result != -1;
+    }
+
 }
